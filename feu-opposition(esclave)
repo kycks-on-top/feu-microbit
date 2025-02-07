@@ -1,0 +1,35 @@
+from microbit import *
+import radio
+
+radio.on()
+radio.config(channel=7)
+
+led_rouge = pin0
+led_orange = pin1
+led_verte = pin2
+
+while True:
+    led_verte.write_digital(1)
+    led_rouge.write_digital(0)
+    led_orange.write_digital(0)
+    
+    if button_a.was_pressed():
+        radio.send("changer")
+        led_verte.write_digital(0)
+        led_orange.write_digital(1)
+        sleep(2000)
+        led_orange.write_digital(0)
+        led_rouge.write_digital(1)
+        sleep(6000)
+        led_rouge.write_digital(0)
+
+    message = radio.receive()
+    
+    if message == "changer":
+        led_verte.write_digital(0)a
+        led_orange.write_digital(1)
+        sleep(2000)
+        led_orange.write_digital(0)
+        led_rouge.write_digital(1)
+        sleep(6000)
+        led_rouge.write_digital(0)
