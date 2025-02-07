@@ -25,7 +25,7 @@ while True:
 
     message = radio.receive()
     
-    if message == "changer":
+    if message == "changer_esclave":
         led_verte.write_digital(0)
         led_orange.write_digital(1)
         sleep(2000)
