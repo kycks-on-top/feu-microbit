@@ -1,0 +1,29 @@
+from microbit import *
+import radio
+
+radio.on()
+radio.config(channel=7)
+
+red = pin0
+yellow = pin1
+green = pin2
+
+green.write_digital(1)
+
+while True:
+    message = radio.receive()
+    
+    if message == "lampadaire_on":  
+        green.write_digital(0)  
+        yellow.write_digital(1)  
+        sleep(1000)              
+        yellow.write_digital(0)   
+        red.write_digital(1)      
+        radio.send("barriere_down")  
+        sleep(5000)               
+
+    if message == "lampadaire_off":  
+        red.write_digital(0)          
+        green.write_digital(1)        
+
+    sleep(100) 
