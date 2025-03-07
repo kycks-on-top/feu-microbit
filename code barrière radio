@@ -1,0 +1,22 @@
+from microbit import *
+import radio
+
+radio.on()
+radio.config(channel=7)
+
+servomoteur = pin0
+
+while True:
+    message = radio.receive()
+    
+    if message == "allumer":  
+        servomoteur.write_analog(90)  
+        sleep(5000)                    
+        servomoteur.write_analog(180)  
+
+    if button_a.was_pressed():
+        servomoteur.write_analog(90)  
+        sleep(5000)
+        servomoteur.write_analog(180)    
+
+    sleep(100)  
