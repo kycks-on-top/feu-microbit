@@ -1,0 +1,11 @@
+from microbit import *
+
+servomoteur = pin0
+
+while True:
+    
+    if button_a.was_pressed():
+        servomoteur.write_analog(90)  
+        sleep(5000)
+        servomoteur.write_analog(180)    
+        
