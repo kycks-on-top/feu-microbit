@@ -10,9 +10,9 @@ while True:
     message = radio.receive()
     
     if message == "barriere_down":  
-        servomoteur.write_analog(90)  
+        servomoteur.write_analog(190)  
         sleep(5000)                   
-        servomoteur.write_analog(180)  
+        servomoteur.write_analog(80)  
 
     if button_a.was_pressed():  
         servomoteur.write_analog(90)  
